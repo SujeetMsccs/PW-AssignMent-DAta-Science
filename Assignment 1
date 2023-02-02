@@ -1,0 +1,43 @@
+Q1.Ans:-	Python was developed by Guido van Rossum in 1989.
+Q2.Ans:-	Python supports multiple(Dynamic) programming paradigms, including:
+                 Object-Oriented Programming (OOP)
+                 Structured Programming
+                 Functional Programming
+                 Aspect-Oriented Programming (AOP)
+Q3.Ans:-	Yes, Python is case sensitive
+Q4.Ans:-	.py
+Q5.Ans:-	Python is an interpreted language, not a compiled language.
+Q6.Ans:-	In Python, blocks of code are defined using indentation.
+                Functions: defined using the "def" keyword
+                Classes: defined using the "class" keyword
+                Conditional statements: defined using "if", "elif", and "else"
+                Loops: defined using "for" and "while"
+                Context Managers: defined using the "with" statement
+                Exception handling: defined using "try", "except", "else", and "finally".
+Q7.Ans:-	The "#" symbol is used to give single-line comments in Python.
+Q8.Ans:-	python –V
+Q9.Ans:-	Python supports the creation of anonymous functions at runtime using a construct called "lambda".
+Q10.Ans:- "pip" stands for "Pip Installs Packages"
+Q11.Ans:-	Here are a few built-in functions in Python:
+               print(): used to display output to the console
+               len():    used to return the length of a string, list, tuple, etc.
+               int():     used to convert a string or float to an integer
+               float(): used to convert a string or integer to a floating-point number
+               str():    used to convert an object to a string
+Q12.Ans:-.	There is no maximum length for an identifier in Python
+Q13.Ans:-	Here are some of the benefits of using Python:
+                   Easy to learn and use:
+                   Versatile: 
+                   Large community
+                   High-level programming language: 
+                    Dynamic typing: 
+                    Interoperability: 
+                    High demand in industry
+Q14.Ans:-.	Python uses a memory management system known as "garbage collection" to manage memory.
+Q15.Ans:-	Here are the steps to install Python on Windows and set the path variables:
+                Download the latest version of Python from the official Python website (https://www.python.org/downloads/). Then install 
+                To set the path variables, go to the Start menu and search for "Environment Variables".
+                Click on "Edit the system environment variables".
+                In the System Properties window, click on the "Environment Variables" button.
+                Scroll down to the "System Variables" section and find the "Path" variable.
+Q16.Ans:-	Yes, indentation is required in Python
