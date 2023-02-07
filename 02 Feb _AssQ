@@ -1,0 +1,129 @@
+Q1. Explain with example when to use for loop and while loop
+
+# For loop:
+## When we know how many itration need to be done
+
+# print 1 to 10
+for i in range(1,11):
+    print(i, end=" ")
+     //Output    1 2 3 4 5 6 7 8 9 10
+     
+     
+     
+     # While loop
+
+    # When we don't know how many times we need to do the iteartion
+
+
+   # take the input
+     ex= input('Do you wnat to start y/n ?')
+
+    # make the condition 
+while ex!='n':
+    ex= input('Type n if you wnat to close the game?')
+    while ex=="n": # create the 2nd condition
+        break # break the while loop if user watns to close
+    else:
+        print()
+        print()
+        print("hello world\n\n\n Welcome to while loop")
+        print()
+    
+    
+//output Do you wnat to start y/n ?n
+Q2.Write a python program to print the sum and product of the first 10 natural numbers using for
+and while loop.
+
+
+
+   	c=0                   # set value for counter
+	d=0                   # set value for identifier	
+	while c<1:                    # set while loop condition
+    		for i in range(1,11):                   # take the first 10 numbers 
+        	d=d+i 
+    		c=c+1 
+    
+    
+	print(d)                      # print the identifier
+	print(1+2+3+4+5+6+7+8+9+10)                   # check manually
+//output 55
+	55
+	
+	
+	
+	
+	
+	Q3.Create a python program to compute the electricity bill for a household.
+	
+	
+	
+	b_unit=int(input("Enter The Elictric Bill Units:::::::"))
+	print()
+
+		if b_unit <=100:
+   		 amount= b_unit*4.5
+    
+		elif b_unit>100 and b_unit<=200:
+  			  amount= (100*4.5)+((b_unit-100)*6)
+    
+			elif b_unit>200 and b_unit<=300:
+   	 amount= (100*4.5)+(100*6)+((b_unit-200)*10)
+    
+		elif b_unit>300:
+   	 amount= (100*4.5)+(100*6)+(100*10)+((b_unit-300)*20)
+    
+	print (f"The bill for UNITS '{b_unit}' is '{amount}' ruppes only")
+	Enter The Elictric Bill Units:::::::310
+
+	//output     The bill for UNITS '310' is '2250.0' ruppes 
+	
+	
+	
+	
+	
+	
+	
+	Q4. Create a list of numbers from 1 to 100. Use for loop and while loop to calculate the cube of each
+		number and if the cube of that number is divisible by 4 or 5 then append that number in a list and print
+		that list.
+		
+		
+		
+		
+		l1=list(range(1,101))
+
+
+		l2=[(n**3) for n in l1]
+		l3=[]
+		for i in l2:
+   			 if i%4==0 or i%5==0:
+      			  l3.append(i)
+			print(l3)
+			//output
+			/*[8, 64, 125, 216, 512, 1000, 1728, 2744, 3375, 4096, 5832, 8000, 10648, 13824, 15625, 17576, 21952, 27000, 32768, 39304, 42875, 46656,
+			54872, 64000, 74088, 85184, 91125, 97336, 110592, 125000, 140608, 157464, 166375, 175616, 195112, 216000, 238328, 262144, 274625, 287496, 
+			314432, 343000, 373248, 405224, 421875, 438976, 474552, 512000, 551368, 592704, 614125, 636056, 681472, 729000, 778688, 830584, 857375, 
+			884736, 941192, 1000000]*/
+			
+			
+			Q5. Write a program to filter count vowels in the below-given string.
+				string = "I want to become a data scientist"
+				
+				
+				
+				
+				
+				v="aeiou"
+				s="I want to become a data scientist"
+				s1=s.lower()
+				vc=[]
+					for i in s1:
+  					  if i in v:
+   				     vc.append(i)
+					len(vc)
+						//output   12
+			
+			
+			
+			
+			
