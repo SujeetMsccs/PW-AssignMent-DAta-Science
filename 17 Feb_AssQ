@@ -1,0 +1,244 @@
+Q1.What is MongoDB? Explain non-relational databases in short. In which scenarios it is preferred to use MongoDB over SQL databases?
+
+          MongoDB is a popular open-source, document-oriented NoSQL database that stores data in JSON-like documents. It is designed to be flexible, scalable,
+          and highly available, making it a popular choice for modern web applications.
+
+          Non-relational databases, also known as NoSQL databases, are databases that do not use the traditional relational data model of rows and columns. 
+          Instead, NoSQL databases use a variety of data models, such as key-value, document-oriented, graph-based, and column-family, among others. 
+          This allows them to handle large volumes of unstructured or semi-structured data more efficiently than traditional SQL databases.
+
+            MongoDB is preferred over SQL databases in the following scenarios:
+
+              Flexible data models: MongoDB is designed to handle unstructured or semi-structured data, which makes it a good choice for applications 
+              that need to store a variety of data types, such as documents, images, videos, and metadata.
+
+              Scalability: MongoDB is highly scalable and can handle large volumes of data and traffic. It is designed to be distributed across multiple servers,
+              which makes it easy to scale horizontally as demand increases.
+
+              Real-time data: MongoDB is a good choice for applications that need to process and analyze real-time data, such as social media analytics, 
+              IoT (Internet of Things) devices, and financial trading platforms.
+
+              Agile development: MongoDB is a good choice for agile development teams that need to iterate quickly and make changes to the data model on the fly.
+              It supports dynamic schemas, which makes it easy to modify the data model without affecting the application code.
+
+              In summary, MongoDB is a popular NoSQL database that is well-suited for applications that need to handle large volumes of
+              unstructured or semi-structured data, require high scalability and availability, and need to process and analyze real-time data.
+              
+              
+Q2.State and Explain the features of MongoDB.
+            
+            
+            MongoDB is a document-oriented NoSQL database with the following key features:
+
+            Document-oriented: Stores data in JSON-like documents.
+
+            Scalability: Designed to be highly scalable and can be distributed across multiple servers.
+
+            Indexing: Supports multiple indexing options for faster queries.
+
+            Aggregation: Provides a powerful framework for data analysis and aggregation.
+
+            Dynamic Schema: Uses a dynamic schema that allows for flexible data models.
+
+            Transactions: Supports multi-document ACID transactions for data consistency and integrity.
+
+            Cloud Integration: Provides integration with cloud services for easy deployment and management.
+
+            Overall, MongoDB offers a flexible and scalable approach to handling complex data structures and performing complex data analysis and aggregation.
+      
+      
+Q3.Write a code to connect MongoDB to Python. Also, create a database and a collection in MongoDB.
+          
+          
+          import pymongo
+            try:
+    
+            client = pymongo.MongoClient("mongodb+srv://dataring:dataring123@cluster0.gi7hozt.mongodb.net/?retryWrites=true&w=majority")
+            db = client.test
+
+        
+          except ModuleNotFoundError as m:
+           print("there is a bug :",m)
+            finally:
+            print("Connection Created")
+            # here we need to change the pass word as same as we have provided to the  while creating the cluster 
+            
+            db=client["pwskill_database"]
+            
+            pws_collection1=db["my_record1"]
+            
+            
+            
+Q4.Using the database and the collection created in question number 3, write a code to insert one record,and insert many records. 
+ Use the find() and find_one() methods to print the inserted record.
+ 
+ 
+ 
+ 
+           
+        data1= {'name': "Sujeet", "Course": "Data Science"}
+
+        try:
+        pws_collection1.insert_one(data1)
+        except Exception as e:
+        print(e)
+        else:
+        print("insert one sucessfull")
+        
+        insert one sucessfull
+        
+        data2= [{'name': 'Subodh', "surname":"Kumar", "friend":"Sujeet"},
+        {"Home":"Hisua", "Know each athe":2014, "State":"Bihar"
+    
+        }]
+
+
+        try:
+        pws_collection1.insert_many(data2)
+        except Exception as e:
+        print(e)
+        else:
+        print("insert many sucessfull")
+        
+        insert many sucessfull
+        
+        pws_collection1.find_one()
+        
+        {'_id': ObjectId('63f08b5c2d9b51e9468cad7b'), 'name': 'Sujeet', 'Course': 'Data Science'}
+        
+        
+        
+        # find many
+
+        try:
+        for i in pws_collection1.find():
+        print(i)
+        except Exception as e:
+        print("the bug here is",e)
+        
+        
+        {'_id': ObjectId('63f08b5c2d9b51e9468cad7b'), 'name': 'Sujeet', 'Course': 'Data Science'}
+        {'_id': ObjectId('63f08bb97af53f7a987ad903'), 'name': 'Sujeet', 'Course': 'Data Science'}
+        {'_id': ObjectId('63f08bba7af53f7a987ad904'), 'name': 'Subodh', 'surname': 'Kumar', 'friend': 'Sujeet'}
+        {'_id': ObjectId('63f08bba7af53f7a987ad905'), 'Home': 'isua', 'Know each other': 2016, 'State': 'Bihar'}
+        
+        
+        
+        
+Q5.Explain how you can use the find() method to query the MongoDB database. Write a simple code to demonstrate this. 
+
+
+
+
+       With find() method we can retrive our data
+       With find method we can filter or and compair our data
+       With find() method we can filter our data
+       
+       
+       # finding a reacord has name "Ram"
+
+       for i in pws_collection1.find({"name":"Ram"}):
+        print(i)
+        
+         {'_id': ObjectId('63f08b5c2d9b51e9468cad7b'), 'name': 'Sujeet', 'Course': 'Data Science'}
+         {'_id': ObjectId('63f08bb97af53f7a987ad903'), 'name': 'Sujeet', 'Course': 'Data Science'}
+         
+         # an random data
+
+        data3=[{"id":1, "vill": "dx poor"},{"id":2, "vill": "mx poor"},{"id":3, "vill": "xx poor"}, {"id":4, "vill": "jh poor"},\
+       {"id":5, "vill": "dtx poor"},{"id":4, "vill": "th poor"},{"id":3, "vill": "tt poor"}, {"id":1, "vill": "jh gram"} ]
+       
+       
+       
+       
+       #inserting to record the random data
+        pws_collection1.insert_many(data3)
+        
+        
+        <pymongo.results.InsertManyResult at 0x1e2dbf75dc0>
+        
+        # logical query
+        # find id greater than or equal to 3
+
+        try:
+          for i in pws_collection1.find({"id":{"$gte":3}}):
+           print(i)
+           except Exception as e:
+           print("the bug is", e)
+           
+           
+           {'_id': ObjectId('63f08db57af53f7a987ad908'), 'id': 3, 'vill': 'xx poor'}
+           {'_id': ObjectId('63f08db57af53f7a987ad909'), 'id': 4, 'vill': 'jh poor'}
+           {'_id': ObjectId('63f08db57af53f7a987ad90a'), 'id': 5, 'vill': 'dtx poor'}
+           {'_id': ObjectId('63f08db57af53f7a987ad90b'), 'id': 4, 'vill': 'th poor'}
+           {'_id': ObjectId('63f08db57af53f7a987ad90c'), 'id': 3, 'vill': 'tt poor'}
+           
+           
+           
+           # logical query
+            # find id greater than 4
+            try:
+             for i in pws_collection1.find({"id":{"$gt":4}}):
+             print(i)
+        
+            except Exception as e:
+             print(e)
+             
+             {'_id': ObjectId('63f08db57af53f7a987ad90a'), 'id': 5, 'vill': 'dtx poor'}
+             
+             
+             
+             
+ Q6.Explain the sort() method. Give an example to demonstrate sorting in MongoDB.
+         
+         
+         The sort() method in MongoDB is used to sort the results of a query. It takes one or more parameters that specify the sorting criteria,
+         and returns a cursor object that can be iterated over to access the sorted documents.
+
+          The sort() method can accept a dictionary object that specifies the field(s) to sort on, and the sorting order for each field. 
+          The field names are the keys of the dictionary, and the sorting order is specified by the values. The sorting order can be 1 for ascending order,
+          or -1 for descending order.
+
+          Here's an example code to demonstrate sorting in MongoDB:
+          
+          # Import pymongo library
+          import pymongo
+
+          # Set up a client to connect to MongoDB
+          client = pymongo.MongoClient("mongodb://localhost:27017/")
+
+          # Create a database
+          db = client["mydatabase"]
+
+          # Create a collection
+          collection = db["mycollection"]
+
+          # Insert some documents into the collection
+            collection.insert_many([
+           {"name": "John", "age": 30, "city": "New York"},
+           {"name": "Jane", "age": 25, "city": "Chicago"},
+           {"name": "Bob", "age": 35, "city": "Los Angeles"},
+           {"name": "Alice", "age": 28, "city": "San Francisco"}])
+
+          # Sort the documents by name in ascending order
+          result = collection.find().sort("name", 1)
+
+          # Print the sorted documents
+          for document in result:
+          print(document)
+
+        # Sort the documents by age in descending order
+        result = collection.find().sort("age", -1)
+
+        # Print the sorted documents
+        for document in result:
+        print(document)
+        
+        
+        
+Q7. Explain why delete_one(), delete_many(), and drop() is used.
+        
+        
+        In MongoDB, delete_one() is used to delete one document from a collection based on a given filter criteria. delete_many() is used to 
+        delete multiple documents from a collection that match a given filter criteria. drop() is used to completely remove a collection from a database. 
+        These methods are used when we want to remove unwanted data from the database or if we want to drop a collection entirely.
